@@ -1,6 +1,6 @@
 // Author : John Whitmore
 // Date Created : 02 / 26 / 25
-// Date Modified : 02 / 26 / 25
+// Date Modified : 03 / 11 / 25
 // File Name : RecipeWindow.java
 // Purpose : Provides window to display meal recipe with return button and edit button
 
@@ -9,6 +9,7 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class RecipeWindow extends JFrame{
     // fields
@@ -18,7 +19,8 @@ public class RecipeWindow extends JFrame{
     private JButton editB;
     private JScrollPane recipeS;
     private JTextPane recipeT;
-    private final int HEIGHT = 500, WIDTH = 350;
+    private Font font1 = new Font("SansSerif", Font.BOLD, 16);
+    private final int HEIGHT = 600, WIDTH = 450;
 
     // constructor
     public RecipeWindow(Meal meal){
@@ -34,18 +36,23 @@ public class RecipeWindow extends JFrame{
         ButtonListener button = new ButtonListener();
         panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+
         nameL = new JLabel(meal.getName());
+        nameL.setFont(font1);
         nameL.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(nameL);
 
         editB = new JButton("Edit");
+        editB.setFont(font1);
         editB.addActionListener(button);
         editB.setActionCommand(meal.getName());
         editB.setAlignmentX(Component.RIGHT_ALIGNMENT);
         panel.add(editB);
 
         recipeT = new JTextPane();
+        recipeT.setFont(font1);
         recipeT.setText(meal.toString());
+        recipeT.setEditable(false);
 
         recipeS = new JScrollPane(recipeT);
         recipeS.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
