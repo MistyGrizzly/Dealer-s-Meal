@@ -1,6 +1,6 @@
 // Author : John Whitmore
 // Date Created : 02 / 23 / 25
-// Date Modified : 02 / 23 / 25
+// Date Modified : 03 / 11 / 25
 // File Name : FoundMeals.java
 // Purpose : Provides list of found meals after search finishes
 
@@ -10,6 +10,7 @@ import java.awt.Component;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Dimension;
+import java.awt.Font;
 
 public class FoundMeals extends JFrame{
     
@@ -18,7 +19,8 @@ public class FoundMeals extends JFrame{
     private JPanel panel, innerPanel;
     private JButton back;
     private JScrollPane scroll;
-    private final int HEIGHT = 500, WIDTH = 300;
+    private Font font1 = new Font("SansSerif", Font.BOLD, 16);
+    private final int HEIGHT = 600, WIDTH = 350;
 
     public FoundMeals(Meal[] meals){
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -35,6 +37,7 @@ public class FoundMeals extends JFrame{
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 
         back = new JButton("Return");
+        back.setFont(font1);
         back.addActionListener(button);
         back.setActionCommand("return");
         panel.add(back);
@@ -46,6 +49,7 @@ public class FoundMeals extends JFrame{
         for(Meal m : meals){
             JButton b = new JButton(m.getName());
             b.addActionListener(button);
+            b.setFont(font1);
             b.setActionCommand(m.getName());
             b.setAlignmentX(Component.CENTER_ALIGNMENT);
             innerPanel.add(b);

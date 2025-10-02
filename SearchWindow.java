@@ -1,6 +1,6 @@
 // Author : John Whitmore
 // Date Created : 02 / 12 / 2025
-// Date Modified : 02 / 23 / 2025
+// Date Modified : 03 / 11 / 2025
 // File Name : SearchWindow.java
 // Purpose : provides main program window with options for meal search, pantry, and add meal
 
@@ -8,6 +8,9 @@ import javax.swing.*;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
+
+
 
 public class SearchWindow extends JFrame{
     // fields
@@ -18,7 +21,7 @@ public class SearchWindow extends JFrame{
     private JComboBox<String> flavorMenu, textureMenu, typeMenu;
     private JCheckBox spicyCheck, useOwned;
     private JButton searchButton, pantryButton, addMealButton;
-    private final int HEIGHT = 500, WIDTH = 450;
+    private final int HEIGHT = 500, WIDTH = 550;
 
     public SearchWindow(){
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -32,39 +35,64 @@ public class SearchWindow extends JFrame{
     private void panelCreation(){
         panel = new JPanel();
         GroupLayout layout = new GroupLayout(panel);
+        Font font1 = new Font("SansSerif", Font.BOLD, 16);
         ButtonListener button = new ButtonListener();
 
         nameLabel = new JLabel("Name");
+        nameLabel.setFont(font1);
+
         nameSearch = new JTextField(20);
+        nameSearch.setFont(font1);
+
+
         searchButton = new JButton("Search");
+        searchButton.setFont(font1);
         searchButton.addActionListener(button);
         searchButton.setActionCommand("search");
 
         flavorLabel = new JLabel("Flavor");
+        flavorLabel.setFont(font1);
+
         flavorMenu = new JComboBox<>(DealersMeal.getFlavors());
+        flavorMenu.setFont(font1);
         flavorMenu.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         textureLabel = new JLabel("Texture");
+        textureLabel.setFont(font1);
+
         textureMenu = new JComboBox<>(DealersMeal.getTextures());
+        textureMenu.setFont(font1);
         textureMenu.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         typeLabel = new JLabel("Meal Type");
+        typeLabel.setFont(font1);
+
         typeMenu = new JComboBox<>(DealersMeal.getTypes());
+        typeMenu.setFont(font1);
         typeMenu.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         prepLabel = new JLabel("Prep Time");
+        prepLabel.setFont(font1);
+
         prepTime = new JTextField(5);
+        prepTime.setFont(font1);
 
         spicyCheck = new JCheckBox("Spicy?");
+        spicyCheck.setFont(font1);
         spicyCheck.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
         addMealButton = new JButton("New Meal");
+        addMealButton.setFont(font1);
         addMealButton.addActionListener(button);
         addMealButton.setActionCommand("addMeal");
 
         pantryButton = new JButton("Pantry");
+        pantryButton.setFont(font1);
         pantryButton.addActionListener(button);
         pantryButton.setActionCommand("pantry");
+
         useOwned = new JCheckBox("Use Owned Ingrediants");
+        useOwned.setFont(font1);
         
         panel.setLayout(layout);
         setGroupLayout(layout);

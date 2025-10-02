@@ -1,6 +1,6 @@
 // Author : John Whitmore
 // Date Created : 02 / 18 / 2025
-// Date Modified : 02 / 18 / 2025
+// Date Modified : 03 / 11 / 2025
 // File Name : EditMeal.java
 // Purpose : provides window for both adding a new meal, and editing a pre-existing meal
 
@@ -23,7 +23,8 @@ public class EditMeal extends JFrame {
     private JCheckBox spicyC;
     private JButton addIngB, removeIngB, editMealB, backB;
     private String oldName;
-    private final int HEIGHT = 500, WIDTH = 550;
+    private Font font1 = new Font("SansSerif", Font.BOLD, 16);
+    private final int HEIGHT = 550, WIDTH = 700;
 
     public EditMeal(){
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -57,43 +58,66 @@ public class EditMeal extends JFrame {
         ButtonListener button = new ButtonListener();
 
         backB = new JButton("Back");
+        backB.setFont(font1);
         backB.addActionListener(button);
         backB.setActionCommand("back");
         panel.add(backB, BorderLayout.NORTH);
 
         nameL = new JLabel("Name");
+        nameL.setFont(font1);
+
         nameTF = new JTextField(20);
+        nameTF.setFont(font1);
 
         flavorL = new JLabel("Flavor");
+        flavorL.setFont(font1);
+
         flavorM = new JComboBox<>(DealersMeal.getFlavors());
+        flavorM.setFont(font1);
         flavorM.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         textureL = new JLabel("Texture");
+        textureL.setFont(font1);
+
         textureM = new JComboBox<>(DealersMeal.getTextures());
+        textureM.setFont(font1);
         textureM.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         typeL = new JLabel("Meal Type");
+        typeL.setFont(font1);
+
         typeM = new JComboBox<>(DealersMeal.getTypes());
+        typeM.setFont(font1);
         typeM.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         prepL = new JLabel("Prep Time");
+        prepL.setFont(font1);
+
         prepTF = new JTextField(5);
+        prepTF.setFont(font1);
 
         spicyC = new JCheckBox("Spicy?");
+        spicyC.setFont(font1);
         spicyC.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         ingrediantsL = new JLabel("Ingrediants");
+        ingrediantsL.setFont(font1);
+
         ingrediantsTF = new JTextField(10);
+        ingrediantsTF.setFont(font1);
 
         addIngB = new JButton("Add");
+        addIngB.setFont(font1);
         addIngB.addActionListener(button);
         addIngB.setActionCommand("add");
 
         removeIngB = new JButton("Remove");
+        removeIngB.setFont(font1);
         removeIngB.addActionListener(button);
         removeIngB.setActionCommand("remove");
 
         editMealB = new JButton("Create");
+        editMealB.setFont(font1);
         editMealB.addActionListener(button);
         editMealB.setActionCommand("create");
 
@@ -107,49 +131,72 @@ public class EditMeal extends JFrame {
         ButtonListener button = new ButtonListener();
 
         backB = new JButton("Back");
+        backB.setFont(font1);
         backB.addActionListener(button);
         backB.setActionCommand("back");
         panel.add(backB, BorderLayout.NORTH);
 
         nameL = new JLabel("Name");
+        nameL.setFont(font1);
+
         nameTF = new JTextField(meal.getName());
+        nameTF.setFont(font1);
         oldName = meal.getName();
 
         flavorL = new JLabel("Flavor");
+        flavorL.setFont(font1);
+
         flavorM = new JComboBox<>(DealersMeal.getFlavors());
+        flavorM.setFont(font1);
         flavorM.setSelectedItem(meal.getFlavor());
         flavorM.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         textureL = new JLabel("Texture");
+        textureL.setFont(font1);
+
         textureM = new JComboBox<>(DealersMeal.getTextures());
+        textureM.setFont(font1);
         textureM.setSelectedItem(meal.getTexture());
         textureM.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         typeL = new JLabel("Meal Type");
+        typeL.setFont(font1);
+
         typeM = new JComboBox<>(DealersMeal.getTypes());
+        typeM.setFont(font1);
         typeM.setSelectedItem(meal.getMealType());
         typeM.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         prepL = new JLabel("Prep Time");
+        prepL.setFont(font1);
+
         prepTF = new JTextField(meal.getPrepTime());
+        prepTF.setFont(font1);
         prepTF.setText(String.valueOf(meal.getPrepTime()));
 
         spicyC = new JCheckBox("Spicy?");
+        spicyC.setFont(font1);
         spicyC.setSelected(meal.getSpicy());
         spicyC.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         ingrediantsL = new JLabel("Ingrediants");
+        ingrediantsL.setFont(font1);
+
         ingrediantsTF = new JTextField(10);
+        ingrediantsTF.setFont(font1);
 
         addIngB = new JButton("Add");
+        addIngB.setFont(font1);
         addIngB.addActionListener(button);
         addIngB.setActionCommand("add");
 
         removeIngB = new JButton("Remove");
+        removeIngB.setFont(font1);
         removeIngB.addActionListener(button);
         removeIngB.setActionCommand("remove");
 
         editMealB = new JButton("Edit Meal");
+        editMealB.setFont(font1);
         editMealB.addActionListener(button);
         editMealB.setActionCommand("edit");
 
@@ -162,15 +209,17 @@ public class EditMeal extends JFrame {
         GroupLayout layout = new GroupLayout(scrollPanel);
 
         recipeL = new JLabel("Recipe");
+        recipeL.setFont(font1);
 
         recipeP = new JTextPane();
         StyledDocument doc = recipeP.getStyledDocument();
         recipeP.setStyledDocument(doc);
+        recipeP.setFont(font1);
         recipeP.setEditable(true);
 
         recipeScroll = new JScrollPane(recipeP);
         recipeScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-        recipeScroll.setMinimumSize(new Dimension(200, 300));
+        recipeScroll.setMinimumSize(new Dimension(300, 300));
         panel.add(recipeScroll, BorderLayout.EAST);
 
         scrollPanel.setLayout(layout);
@@ -182,8 +231,10 @@ public class EditMeal extends JFrame {
         GroupLayout layout = new GroupLayout(scrollPanel);
 
         recipeL = new JLabel("Recipe");
+        recipeL.setFont(font1);
 
         recipeP = new JTextPane();
+        recipeP.setFont(font1);
         recipeP.setText(edited.toString());
         StyledDocument doc = recipeP.getStyledDocument();
         recipeP.setStyledDocument(doc);
@@ -191,7 +242,7 @@ public class EditMeal extends JFrame {
 
         recipeScroll = new JScrollPane(recipeP);
         recipeScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-        recipeScroll.setMinimumSize(new Dimension(200, 300));
+        recipeScroll.setMinimumSize(new Dimension(300, 300));
         panel.add(recipeScroll, BorderLayout.EAST);
 
         scrollPanel.setLayout(layout);
